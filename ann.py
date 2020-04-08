@@ -44,7 +44,6 @@ for i, ax in enumerate(axes.flat):
 fig.legend(labels=labels, loc=3, bbox_to_anchor=(1.0,0.85))
 plt.show()
 
-
 X = df.drop('target', axis = 1).values
 y = df['target'].values
 
@@ -55,8 +54,6 @@ X_test = torch.FloatTensor(X_test)
 y_train = torch.LongTensor(y_train)
 y_test = torch.LongTensor(y_test)
 
-
-
 trainloader = DataLoader(X_train, batch_size=60, shuffle= True)
 testloader = DataLoader(X_test, batch_size= 60, shuffle= False)
 
@@ -65,7 +62,6 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
 
 epochs = 100
 losses = []
-
 
 for i in range(epochs):
     i+=1
@@ -81,7 +77,6 @@ for i in range(epochs):
     loss.backward()
     optimizer.step()
 
-        
 plt.plot(range(epochs), losses)
 plt.ylabel('Loss')
 plt.xlabel('epoch');
@@ -100,41 +95,3 @@ with torch.no_grad():
             correct += 1
 
 print(f'\n{correct} out of {len(y_test)} = {100*correct/len(y_test):.2f}% correct')
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
